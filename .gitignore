@@ -1,0 +1,5 @@
+config2.json
+__pycache__/
+.venv/
+github_repos.xlsx
+output.txt
