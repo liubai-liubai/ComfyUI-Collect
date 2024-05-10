@@ -1,1 +1,2 @@
 用于收集ComfyUI自定义插件，按stars数从大到小排列
+config.json中需要配置相关的key
