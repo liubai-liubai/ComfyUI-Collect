@@ -3,3 +3,6 @@ __pycache__/
 .venv/
 github_repos.xlsx
 output.txt
+Gemini.py
+gpt4.py
+moonshort.py
