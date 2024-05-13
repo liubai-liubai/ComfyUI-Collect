@@ -1,3 +1,7 @@
+![alt text](<example/word cloud.png>)
+
+![alt text](example/showall.png)
+
 ![alt text](example/example.png)
 
 ## 项目介绍 | Info
@@ -12,5 +16,3 @@
 📬 **联系我**：
 - 邮箱：wyply115@163.com
 - ComfySpace：https://t.zsxq.com/19H0cfM1O
-
-![alt text](example/星球.jpg)
