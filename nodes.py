@@ -1,6 +1,22 @@
 
 import requests
 import json
+import os
+
+sys_path = os.path.dirname(os.path.realpath(__file__))
+
+def get_github_token():
+    try:
+        config_path = os.path.join(sys_path, 'config.json')
+        with open(config_path, 'r') as f:  
+            config = json.load(f)
+        token = config["token"]
+    except:
+        print("Error: token is required")
+        return ""
+    return token
+
+
 
 class lb_collect:
     def __init__(self):
@@ -12,7 +28,7 @@ class lb_collect:
         return {
             "required": {
                 "keywords": ("STRING", {"default": "ComfyUI", "placeholder": "请输入要搜索的关键词","multiline": False}),
-                "order-number": ("INT",{
+                "order_number": ("INT",{
                     "default": 100,  # 默认
                     "min": 1,
                     "max": 1000,
@@ -29,11 +45,10 @@ class lb_collect:
         }
 
     OUTPUT_NODE = True
-    RETURN_TYPES = ("text",)
+    RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("text",)
-
-
     FUNCTION = "collect"
+
     def collect(self,keywords,order_number,author,project_name,stars_count,project_url):
         # 1加载模型========================================================================
         # 设置GitHub API的URL和参数
@@ -48,9 +63,8 @@ class lb_collect:
         }
 
         # 读取config.json文件中的token
-        with open('config.json') as f:
-            config = json.load(f)
-            token = config['token']
+    
+        token = get_github_token()
 
         headers = {
             "Authorization": f"token {token}"
